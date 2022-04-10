@@ -18,8 +18,8 @@ gem "importmap-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Provides a rich library which can be used to build HTTP user-agents.
-gem 'net-http'
+# Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later.
+gem 'pg', '~> 1.3', '>= 1.3.5'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
