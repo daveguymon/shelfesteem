@@ -1,6 +1,16 @@
 <% if @response %>
   <% @response["items"].each do |item| %>
-    <%= item["volumeInfo"]["title"] %> by <%=  item["volumeInfo"]["authors"].first %>
+    <%= item["volumeInfo"] %>
+    <%= button_to("Add Book", :params => {
+        :title => item["volumeInfo"]["title"],
+        :subtitle => item["volumeInfo"]["subtitle"],
+        :authors => item["volumeInfo"]["authors"],
+        :description => item["volumeInfo"]["description"],
+        :page_count => item["volumeInfo"]["pageCount"],
+        :categories => item["volumeInfo"]["categories"],
+        :image_link => item["volumeInfo"]["imageLinks"]["thumbnail"]
+      })
+      %>
     <hr>
   <% end %>
 <% else %>
