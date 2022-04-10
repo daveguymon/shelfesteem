@@ -1,0 +1,15 @@
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+/Users/David.Guymon/.rvm/rubies/ruby-2.7.5/bin/ruby -I /Users/David.Guymon/.rvm/rubies/ruby-2.7.5/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220409-10024-8qlxoa.rb extconf.rb
+creating Makefile
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20220409-10024-q3hkee/bootsnap

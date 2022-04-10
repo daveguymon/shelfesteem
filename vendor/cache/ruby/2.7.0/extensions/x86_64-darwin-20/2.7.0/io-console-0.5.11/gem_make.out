@@ -1,0 +1,20 @@
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+/Users/David.Guymon/.rvm/rubies/ruby-2.7.5/bin/ruby -I /Users/David.Guymon/.rvm/rubies/ruby-2.7.5/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220409-10024-mm3om4.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= clean
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\=
+compiling console.c
+linking shared-object io/console.bundle
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 console.bundle ./.gem.20220409-10024-1o4ec9n/io

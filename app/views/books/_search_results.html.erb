@@ -1,0 +1,8 @@
+<% if @response %>
+  <%= @response["items"].each do |item| %>
+    <%= item["volumeInfo"]["title"] %> by <%=  item["volumeInfo"]["authors"].first %>
+    <hr>
+  <% end %>
+<% else %>
+  No search results.
+<% end %>

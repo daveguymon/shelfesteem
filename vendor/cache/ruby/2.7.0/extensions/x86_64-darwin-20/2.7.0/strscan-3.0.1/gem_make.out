@@ -1,0 +1,16 @@
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/strscan-3.0.1/ext/strscan
+/Users/David.Guymon/.rvm/rubies/ruby-2.7.5/bin/ruby -I /Users/David.Guymon/.rvm/rubies/ruby-2.7.5/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220409-10024-1n06qrk.rb extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/strscan-3.0.1/ext/strscan
+make DESTDIR\= clean
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/strscan-3.0.1/ext/strscan
+make DESTDIR\=
+compiling strscan.c
+linking shared-object strscan.bundle
+
+current directory: /Users/David.Guymon/personal_projects/shelfesteem/vendor/cache/ruby/2.7.0/gems/strscan-3.0.1/ext/strscan
+make DESTDIR\= install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 strscan.bundle ./.gem.20220409-10024-1jb5oqu
