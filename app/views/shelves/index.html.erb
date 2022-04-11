@@ -4,7 +4,10 @@
 
 <div id="shelves">
   <% @shelves.each do |shelf| %>
-    <%= render shelf %>
+    <h1><%= shelf.name %></h1>
+    <% shelf.books.each do |shelved_book| %>
+      <%= image_tag(shelved_book.image_link) %>
+    <% end %>
     <p>
       <%= link_to "Show this shelf", shelf %>
     </p>

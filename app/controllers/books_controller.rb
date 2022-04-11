@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
-
+  after_action :add_to_shelf, :only => [:create]
   # GET /books or /books.json
   def index
     @books = Book.all
@@ -13,18 +13,18 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new({
-      :title => params[:title],
-      :subtitle => params[:subtitle],
-      :authors => params[:authors],
-      :description => params[:description],
-      :page_count => params[:page_count],
-      :categories => params[:categories],
-      :image_link => params[:image_link]
+      :title => params[:book][:title],
+      :subtitle => params[:book][:subtitle],
+      :authors => params[:book][:authors],
+      :description => params[:book][:description],
+      :page_count => params[:book][:page_count],
+      :categories => params[:book][:categories],
+      :image_link => params[:book][:image_link]
     })
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
+        format.html { redirect_to shelves_path, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,5 +52,10 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :categories, :image_link)
+    end
+
+    def add_to_shelf
+      @shelf = Shelf.find(params[:shelf])
+      @shelf.books << @book
     end
 end
