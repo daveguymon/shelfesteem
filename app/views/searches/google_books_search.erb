@@ -1,7 +1,7 @@
 <% if @response %>
   <% @response["items"].each do |item| %>
     <%= item["volumeInfo"] %>
-    <%= button_to("Add Book", :params => {
+    <%= button_to("Add Book", books_path, :params => {
         :title => item["volumeInfo"]["title"],
         :subtitle => item["volumeInfo"]["subtitle"],
         :authors => item["volumeInfo"]["authors"],

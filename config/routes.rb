@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :shelves
+  resources :books, :only => [:index, :show, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :books
-  get '/collection', to: 'books#collection', as: 'collection'
+  get '/search', :to => "searches#google_books_search"
   # Defines the root path route ("/")
   root "books#index"
-
 end

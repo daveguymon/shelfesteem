@@ -11,8 +11,3 @@ class GoogleApi
     @search_format = "q=#{user_search_input.gsub(" ", "%20")}&"
   end
 end
-
-# require "google_api"
-# search = GoogleApi.new("adam grant")
-# response = search.query
-# response["items"].first["volumeInfo"]

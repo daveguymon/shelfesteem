@@ -1,6 +1,16 @@
-<%= form_tag(books_path, :method => :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag("Search")%>
-<% end %>
+<p style="color: green"><%= notice %></p>
 
-<%= render "search_results" %>
+<h1>Books</h1>
+
+<div id="books">
+  <% @books.each do |book| %>
+    <h1><%= book.title %></h1>
+    <h2><%= book.subtitle %></h2>
+    <p><%= book.authors %></p>
+    <p><%= book.categories %></p>
+    <p><%= book.page_count %></p>
+    <img src=<%= book.image_link%> >
+    <%= button_to("Delete", book_path(book), :method => :delete) %>
+  <% end %>
+</div>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_10_043722) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_10_231426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_10_043722) do
     t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shelves", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shelvings", id: false, force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "shelf_id", null: false
+    t.index ["book_id", "shelf_id"], name: "index_shelvings_on_book_id_and_shelf_id"
+    t.index ["shelf_id", "book_id"], name: "index_shelvings_on_shelf_id_and_book_id"
   end
 
 end

@@ -9,7 +9,6 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.string :categories, array: true, default: []
       t.string :image_link
 
-
       t.timestamps
     end
   end
