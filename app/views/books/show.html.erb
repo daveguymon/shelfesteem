@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @book %>
+<%= image_tag(@book.image_link) %>
+
+<%= form_with(model: @book, url: { action: "reshelf", params: {id: @book.id} } ) do |form| %>
+  <%= form.select('shelf', options_from_collection_for_select(Shelf.all, "id", "name")) %>
+  <%= form.submit "Reshelf" %>
+<% end %>
 
 <div>
   <%= link_to "Back to books", books_path %>

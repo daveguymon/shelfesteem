@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
-  after_action :add_to_shelf, :only => [:create]
+  before_action :get_book, :only => %i[ show edit update destroy reshelf]
+  after_action :add_to_shelf, :only => %i[ create ]
   # GET /books or /books.json
   def index
     @books = Book.all
@@ -25,12 +25,19 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.html { redirect_to shelves_path, notice: "Book was successfully created." }
-        format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # PATCH /books/1
+  def reshelf
+    shelf = Shelf.find(@book.shelves.first.id)
+    @book.shelves.delete(shelf)
+
+    @book.shelves << Shelf.find(params[:book][:shelf])
+    redirect_to shelves_path
   end
 
   # DELETE /books/1 or /books/1.json
@@ -44,12 +51,10 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
+    def get_book
       @book = Book.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :categories, :image_link)
     end

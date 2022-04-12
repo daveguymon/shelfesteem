@@ -6,7 +6,9 @@
   <% @shelves.each do |shelf| %>
     <h1><%= shelf.name %></h1>
     <% shelf.books.each do |shelved_book| %>
-      <%= image_tag(shelved_book.image_link) %>
+      <%= link_to book_path(shelved_book) do %>
+        <%= image_tag(shelved_book.image_link) %>
+      <% end %>
     <% end %>
     <p>
       <%= link_to "Show this shelf", shelf %>
