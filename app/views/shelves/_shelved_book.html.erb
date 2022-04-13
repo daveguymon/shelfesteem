@@ -1,0 +1,10 @@
+<%= link_to(shelved_book) do %>
+  <div class="card">
+    <div class="card-body">
+      <img src=<%= shelved_book.image_link %> class="book-cover img-thumbnail" alt="...">
+      <h5 class="card-title"><%= shelved_book.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= shelved_book.authors %></h6>
+      <p class="card-text"><%= shelved_book.categories %></p>
+    </div>
+  </div>
+<% end %>

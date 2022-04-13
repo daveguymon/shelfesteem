@@ -17,10 +17,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_10_231426) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
-    t.string "authors", default: [], array: true
+    t.string "authors"
     t.text "description"
     t.integer "page_count"
-    t.string "categories", default: [], array: true
+    t.string "categories"
     t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

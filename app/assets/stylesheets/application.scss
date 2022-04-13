@@ -14,3 +14,29 @@
  *= require_self
  */
 @import "bootstrap";
+
+.shelf {
+  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  row-gap: 10px;
+  column-gap: 20px;
+  background-color:aquamarine;
+}
+
+.card {
+  width: 200px;
+  background-color: pink;
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .book-cover {
+      width: auto;
+      max-height: 70%;
+    }
+  }
+}

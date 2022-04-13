@@ -1,16 +1,11 @@
-<h1>Shelves</h1>
-
 <div id="shelves">
   <% @shelves.each do |shelf| %>
-    <h1><%= shelf.name %></h1>
-    <% shelf.books.each do |shelved_book| %>
-      <%= link_to book_path(shelved_book) do %>
-        <%= image_tag(shelved_book.image_link) %>
+    <h1><%= shelf.name %></h1><%= link_to "More", shelf %>
+    <div class="shelf">
+      <% shelf.books.each do |shelved_book| %>
+        <%= render partial: "shelved_book", object: shelved_book %>
       <% end %>
-    <% end %>
-    <p>
-      <%= link_to "Show this shelf", shelf %>
-    </p>
+    </div>
   <% end %>
 </div>
 

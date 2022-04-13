@@ -1,17 +1,18 @@
 class BooksController < ApplicationController
   before_action :get_book, :only => %i[ show edit update destroy reshelf]
   after_action :add_to_shelf, :only => %i[ create ]
-  # GET /books or /books.json
+  # GET /books
   def index
     @books = Book.all
   end
 
-  # GET /books/1 or /books/1.json
+  # GET /books/1
   def show
   end
 
-  # POST /books or /books.json
+  # POST /books
   def create
+    p params[:book]
     @book = Book.new({
       :title => params[:book][:title],
       :subtitle => params[:book][:subtitle],
@@ -40,13 +41,12 @@ class BooksController < ApplicationController
     redirect_to shelves_path
   end
 
-  # DELETE /books/1 or /books/1.json
+  # DELETE /books/1
   def destroy
     @book.destroy
 
     respond_to do |format|
       format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

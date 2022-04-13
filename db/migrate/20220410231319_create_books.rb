@@ -3,10 +3,10 @@ class CreateBooks < ActiveRecord::Migration[7.0]
     create_table :books do |t|
       t.string :title
       t.string :subtitle
-      t.string :authors, array: true, default: []
+      t.string :authors
       t.text :description
       t.integer :page_count
-      t.string :categories, array: true, default: []
+      t.string :categories
       t.string :image_link
 
       t.timestamps
