@@ -6,6 +6,9 @@ ruby "2.7.5"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+
 # HTTP/REST API client library.
 gem 'faraday', '~> 2.2'
 
@@ -49,7 +52,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem "bcrypt", "~> 3.1.7"
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
