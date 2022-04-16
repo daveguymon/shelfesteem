@@ -1,6 +1,6 @@
 <div id="shelves">
   <% @shelves.each do |shelf| %>
-    <h1><%= shelf.name %></h1><%= link_to "More", shelf %>
+    <h1><%= shelf.name %></h1>
     <div class="shelf">
       <% shelf.books.each do |shelved_book| %>
         <%= render partial: "shelved_book", object: shelved_book %>
@@ -8,5 +8,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "New shelf", new_shelf_path %>

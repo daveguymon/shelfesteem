@@ -1,0 +1,9 @@
+<nav>
+  <div class="nav-links">
+    <% Shelf.all.pluck(:name).each do |shelf_name| %>
+      <p><%= shelf_name %></p>
+    <% end %>
+  </div>
+
+  <%= render 'layouts/google_books_search' %>
+</nav>
