@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy create_account! ]
-  after_action :set_default_shelves
+  before_action :set_user, only: %i[ show edit update destroy ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -61,11 +60,6 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    end
-
-
-    def set_default_shelves
-      Shelves.create({:name => "Favorites"}, {:name => "Reading"}, {:name => "To Be Read"}, {:name => "Have Read"})
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-links">
-    <% Shelf.all.pluck(:name).each do |shelf_name| %>
+    <% ActsAsTenant.current_tenant.shelves.pluck(:name).each do |shelf_name| %>
       <p><%= shelf_name %></p>
     <% end %>
   </div>

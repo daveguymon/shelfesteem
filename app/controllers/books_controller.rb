@@ -12,7 +12,6 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    p params[:book]
     @book = Book.new({
       :title => params[:book][:title],
       :subtitle => params[:book][:subtitle],
