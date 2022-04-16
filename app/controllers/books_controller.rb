@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :get_book, :only => %i[ show edit update destroy reshelf]
+  before_action :set_book, :only => %i[ show edit update destroy reshelf]
   after_action :add_to_shelf, :only => %i[ create ]
   # GET /books
   def index
@@ -51,7 +51,7 @@ class BooksController < ApplicationController
   end
 
   private
-    def get_book
+    def set_book
       @book = Book.find(params[:id])
     end
 

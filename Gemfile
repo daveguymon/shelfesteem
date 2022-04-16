@@ -3,11 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.5"
 
+# Row-level multitenancy for Ruby on Rails apps.
+gem 'acts_as_tenant'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
 # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+
+# User authentication
+gem 'devise'
 
 # HTTP/REST API client library.
 gem 'faraday', '~> 2.2'
