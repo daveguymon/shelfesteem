@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 
@@ -38,16 +39,42 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
-    width: 70%;
+    width: 50%;
     height: auto;
     padding-top: 15px;
+  }
 
-    p {
-      font-size: 16px;
-      line-height: 16px;
-      margin-right: 25px;
+  .nav-text {
+    color: #2a2a2a;
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 25px;
+    text-decoration: none;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: auto;
+
+    .nav-search {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      margin-left: 15px;
     }
   }
+}
+
+.btn {
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  height: 40px;
+  width: 81px;
 }
 
 #shelves {
@@ -57,7 +84,6 @@ nav {
  h1 {
   font-size: 28px;
   line-height: 40px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
 }
 .shelf {
@@ -87,7 +113,6 @@ nav {
   }
 
   .book-details {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: white;
     width: 75%;
     height: inherit;

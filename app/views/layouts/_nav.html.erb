@@ -1,15 +1,18 @@
 <nav>
   <div class="nav-links">
     <% ActsAsTenant.current_tenant.shelves.pluck(:name).each do |shelf_name| %>
-      <p><%= shelf_name %></p>
+      <p class="nav-text"><%= shelf_name %></p>
     <% end %>
   </div>
 
-  <%= button_to(
-    "Log Out",
-    destroy_user_session_path,
-    method: :delete
-  ) %>
+  <div class="buttons-container">
+    <%= link_to("Log Out", destroy_user_session_path, method: :delete, :class => "nav-text") %>
 
-  <%= render 'layouts/google_books_search' %>
+    <%= form_tag('/search', :method => :get, :class => "nav-search") do %>
+      <%= text_field_tag(:search, params[:search], :class => "form-control mr-sm-2") %>
+      <%= button_tag(:class => "btn btn-outline-secondary my-2 my-sm-0") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
 </nav>
