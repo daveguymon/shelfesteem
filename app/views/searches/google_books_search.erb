@@ -1,16 +1,17 @@
 <% if @response %>
   <% @response["items"].each do |item| %>
-    <%= item["volumeInfo"]["title"] %> by <%= item["volumeInfo"]["authors"].first %>
+    <% book = item["volumeInfo"]%>
+    <%= book["title"] %> by <%= book["authors"].first %>
 
     <%= form_tag books_path do %>
       <%= select_tag('shelf', options_from_collection_for_select(Shelf.all, "id", "name")) %>
-      <%= hidden_field(:book, :title, :value => item["volumeInfo"]["title"]) %>
-      <%= hidden_field(:book, :subtitle, :value => item["volumeInfo"]["subtitle"]) %>
-      <%= hidden_field(:book, :authors, :value => item["volumeInfo"]["authors"]) %>
-      <%= hidden_field(:book, :description, :value => item["volumeInfo"]["description"]) %>
-      <%= hidden_field(:book, :page_count, :value => item["volumeInfo"]["pageCount"]) %>
-      <%= hidden_field(:book, :categories, :value => item["volumeInfo"]["categories"]) %>
-      <%= hidden_field(:book, :image_link, :value => item["volumeInfo"]["imageLinks"]["thumbnail"]) %>
+      <%= hidden_field(:book, :title, :value => book&.dig("title")) %>
+      <%= hidden_field(:book, :subtitle, :value => book&.dig("subtitle")) %>
+      <%= hidden_field(:book, :authors, :value => book&.dig("authors")) %>
+      <%= hidden_field(:book, :description, :value => book&.dig("description")) %>
+      <%= hidden_field(:book, :page_count, :value => book&.dig("pageCount")) %>
+      <%= hidden_field(:book, :categories, :value => book&.dig("categories")) %>
+      <%= hidden_field(:book, :image_link, :value => book&.dig("imageLinks", "thumbnail")) %>
       <%= submit_tag "Create" %>
     <% end %>
     <hr>
