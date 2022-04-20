@@ -1,13 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<%= image_tag(@book.image_link) %>
-
-<%= form_with(model: @book, url: { action: "reshelf", params: {id: @book.id} } ) do |form| %>
-  <%= form.select('shelf', options_from_collection_for_select(Shelf.all, "id", "name")) %>
-  <%= form.submit "Reshelf" %>
-<% end %>
-
-<div>
-  <%= link_to "Back to books", books_path %>
-  <%= button_to "Destroy this book", @book, method: :delete %>
+<div class="book-container">
+  <div class="thumbnail-shelving">
+    <img src=<%= @book.image_link %> class="book-cover img-thumbnail">
+    <%= form_with(model: @book, url: { action: "reshelf", params: {id: @book.id} }, :class => "shelf-select" ) do |form| %>
+      <%= form.select('shelf', options_from_collection_for_select(Shelf.all, "id", "name", @book.shelves.first.id), {}, { :onchange => "this.form.submit();" }) %>
+    <% end %>
+    <%= button_to @book, method: :delete, :class => "delete-book" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </div>
+  <div class="book-details">
+    <h5 class="book-categories"><%= @book.categories %></h5>
+    <h3 class="book-title"><i><%= @book.title %></i></h3>
+    <p class="book-description"><%= @book.description %></p>
+  </div>
 </div>

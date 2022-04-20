@@ -45,21 +45,21 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to root_url, notice: "Book was successfully destroyed." }
     end
   end
 
-  private
-    def set_book
-      @book = Book.find(params[:id])
-    end
+private
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
-    def book_params
-      params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :categories, :image_link)
-    end
+  def book_params
+    params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :categories, :image_link)
+  end
 
-    def add_to_shelf
-      @shelf = Shelf.find(params[:shelf])
-      @shelf.books << @book
-    end
+  def add_to_shelf
+    @shelf = Shelf.find(params[:shelf])
+    @shelf.books << @book
+  end
 end

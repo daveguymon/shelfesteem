@@ -1,11 +1,5 @@
-<%= link_to shelved_book, :class => "link-to-shelved-book" do %>
-  <div class="book-container">
-    <img src=<%= shelved_book.image_link %> class="book-cover img-thumbnail" alt="...">
-    <div class="book-details">
-      <h5 class="book-categories"><%= shelved_book.categories %></h5>
-      <h3 class="book-title"><i><%= shelved_book.title %></i></h3>
-      <p class="book-description"><%= truncate(shelved_book.description, :omission => "...", :length => 500) %></p>
-    </div>
-  </div>
-  <hr>
-<% end %>
+<div class="shelved-book">
+  <%= link_to shelved_book do %>
+    <img src=<%= shelved_book.image_link %> class="book-cover img-thumbnail">
+  <% end %>
+</div>
