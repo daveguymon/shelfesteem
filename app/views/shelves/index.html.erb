@@ -1,10 +1,15 @@
 <div id="shelves">
   <% @shelves.each do |shelf| %>
-    <h1><%= shelf.name %></h1>
+    <div class="shelf-identifier">
+      <div class="shelf-name"><%= shelf.name.upcase %></div>
+      <div class="shelf-flourish"></div>
+    </div>
     <div class="shelf">
-      <% shelf.books.each do |shelved_book| %>
-        <%= render partial: "shelved_book", object: shelved_book %>
-      <% end %>
+      <div class="scrollmenu">
+        <% shelf.books.each do |shelved_book| %>
+          <%= render partial: "shelved_book", object: shelved_book %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

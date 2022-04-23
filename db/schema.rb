@@ -17,11 +17,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_215044) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
-    t.string "authors"
+    t.jsonb "authors"
     t.text "description"
     t.integer "page_count"
-    t.string "categories"
-    t.string "image_link"
+    t.jsonb "categories"
+    t.jsonb "image_links"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

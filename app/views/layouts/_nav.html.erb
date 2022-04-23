@@ -1,7 +1,7 @@
 <nav>
   <div class="nav-links">
-    <% ActsAsTenant.current_tenant.shelves.pluck(:name).each do |shelf_name| %>
-      <p class="nav-text"><%= shelf_name %></p>
+    <%= link_to root_url do %>
+      <i class="fa-solid fa-book fa-2xl"></i>
     <% end %>
   </div>
 

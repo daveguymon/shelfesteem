@@ -1,72 +1,19 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "reset.scss";
 @import "bootstrap";
+
+@import "variables.scss";
+
+@import "modules/*";
+@import "modules/shelves/*";
+@import "modules/books/*";
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: $base-white;
+  font-family:$font-family;
 
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 72px;
-  width: 55%;
-  text-decoration: none;
-  border-bottom: 3px solid #F4F4F4;
-  margin-bottom: 25px;
-
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
-    width: 50%;
-    height: auto;
-    padding-top: 15px;
-  }
-
-  .nav-text {
-    color: #2a2a2a;
-    font-size: 16px;
-    line-height: 16px;
-    margin-right: 25px;
-    text-decoration: none;
-  }
-
-  .buttons-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
-    height: auto;
-
-    .nav-search {
-      display: flex;
-      flex-direction: row;
-      width: auto;
-      margin-left: 15px;
-    }
-  }
 }
 
 .btn {
@@ -75,88 +22,4 @@ nav {
   text-decoration: none;
   height: 40px;
   width: 81px;
-}
-
-#shelves {
-  width: 55%;
-  background-color: #ffffff;
-
- h1 {
-  font-size: 28px;
-  line-height: 40px;
- }
-}
-
-.shelf {
-  padding: 10px 10px 0 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-start;
-
-  .shelved-book {
-
-    .book-cover {
-      height: 200px;
-      width: auto;
-      margin-right: 20px;
-    }
-  }
-}
-
-// BOOK SHOW PAGE
-.book-container {
-  display: flex;
-  height: fit-content;
-  width: 65%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5px;
-
-  .thumbnail-shelving {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .book-cover {
-      height: inherit;
-      width: auto;
-    }
-
-    .shelf-select {
-      margin: 10px 0px 10px 0px;
-    }
-
-    .delete-book {
-      background-color: transparent;
-      border: none;
-      outline: none;
-      color: #9b9b9b;
-    }
-  }
-
-  .book-details {
-    background-color: white;
-    width: 75%;
-    height: inherit;
-    padding: 10px;
-    color: #2a2a2a;
-
-    .book-categories {
-      font-size: 14px;
-      line-height: 14px;
-      text-transform: uppercase;
-      color: #9b9b9b;
-    }
-    .book-title {
-      font-size: 20px;
-      line-height: 28px;
-    }
-  }
-}
-
-hr {
-  width: 95%;
-  background-color:#9b9b9b;
 }

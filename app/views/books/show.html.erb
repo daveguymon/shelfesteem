@@ -1,6 +1,6 @@
 <div class="book-container">
   <div class="thumbnail-shelving">
-    <img src=<%= @book.image_link %> class="book-cover img-thumbnail">
+    <img src=<%= @book.image_links["thumbnail"] %> class="book-cover img-thumbnail">
     <%= form_with(model: @book, url: { action: "reshelf", params: {id: @book.id} }, :class => "shelf-select" ) do |form| %>
       <%= form.select('shelf', options_from_collection_for_select(Shelf.all, "id", "name", @book.shelves.first.id), {}, { :onchange => "this.form.submit();" }) %>
     <% end %>
@@ -9,8 +9,11 @@
     <% end %>
   </div>
   <div class="book-details">
-    <h5 class="book-categories"><%= @book.categories %></h5>
+    <h5 class="book-categories"><%= @book.categories.values.join(", ") %></h5>
     <h3 class="book-title"><i><%= @book.title %></i></h3>
+    <h6><%= @book.authors.values.join(", ") %></h6>
+    <hr>
+    <h6>PUBLISHER'S DESCRIPTION</h6>
     <p class="book-description"><%= @book.description %></p>
   </div>
 </div>

@@ -1,0 +1,96 @@
+.scrollmenu {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollmenu::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+#shelves {
+  width: 55%;
+  background-color: $base-white;
+
+ .shelf-identifier {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+
+   .shelf-name {
+     width: 15%;
+     height: 30px;
+     border: 1px solid $base-grey;
+     z-index: 99;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: $base-white;
+   }
+
+   .shelf-flourish {
+    position: absolute;
+    height: 1px;
+    width: 55%;
+    background-color: $base-grey;
+   }
+ }
+}
+
+.shelf {
+  padding: 10px 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  margin-top: 25px;
+  margin-bottom: 50px;
+
+  .scrollmenu {
+    width:100%;
+    height: 325px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+    white-space: nowrap;
+
+    .shelved-book {
+      min-width: 200px;
+
+      .book-cover {
+        height: 225px;
+        width: auto;
+        margin-right: 20px;
+      }
+
+      .title-byline {
+        display:flex;
+        flex-direction:column;
+        padding-left: 10px;
+
+        .authors-attribution {
+          color: $base-grey;
+        }
+      }
+
+      a:link, a:hover, a:visited, a:active {
+        text-decoration: none;
+        color: $text-color;
+      }
+    }
+  }
+
+  .scrollmenu a {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+
+
+}
+
+hr {
+  width: 95%;
+  background-color:$base-grey;
+}

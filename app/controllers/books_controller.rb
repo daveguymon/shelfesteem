@@ -19,7 +19,7 @@ class BooksController < ApplicationController
       :description => params[:book][:description],
       :page_count => params[:book][:page_count],
       :categories => params[:book][:categories],
-      :image_link => params[:book][:image_link]
+      :image_links => params[:book][:image_links]
     })
 
     respond_to do |format|
@@ -55,7 +55,7 @@ private
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :categories, :image_link)
+    params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :main_category, :image_links)
   end
 
   def add_to_shelf

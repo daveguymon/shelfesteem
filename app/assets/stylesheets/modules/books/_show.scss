@@ -1,0 +1,52 @@
+.book-container {
+  display: flex;
+  height: fit-content;
+  width: 65%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  // background-color: moccasin;
+
+  .thumbnail-shelving {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .book-cover {
+      height: inherit;
+      width: auto;
+    }
+
+    .shelf-select {
+      margin: 10px 0px 10px 0px;
+    }
+
+    .delete-book {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: $base-grey;
+    }
+  }
+
+  .book-details {
+    background-color: $base-white;
+    width: 75%;
+    height: inherit;
+    padding: 10px;
+    color: $text-color;
+
+    .book-categories {
+      font-size: 14px;
+      line-height: 14px;
+      text-transform: uppercase;
+      color: $base-grey;
+    }
+    .book-title {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}

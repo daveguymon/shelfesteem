@@ -1,0 +1,32 @@
+<% if @response %>
+  <% @response["items"].each do |item| %>
+    <% book = item["volumeInfo"]%>
+    <%= book["title"] %> by <%= book["authors"]&.join(", ") %>
+
+    <%= form_tag books_path do %>
+      <%= select_tag('shelf', options_from_collection_for_select(Shelf.all, "id", "name")) %>
+      <%= hidden_field(:book, :title, :value => book["title"]) %>
+      <%= hidden_field(:book, :subtitle, :value => book["subtitle"]) %>
+      <%= hidden_field(:book, :description, :value => book["description"]) %>
+      <%= hidden_field(:book, :page_count, :value => book["pageCount"]) %>
+      <%= hidden_field(:book, :main_category, :value => book["categories"]) %>
+
+      <% book["authors"]&.each_with_index do |author, index| %>
+        <%= hidden_field(:book, "authors[#{index}]", :value => author) %>
+      <% end %>
+
+      <% book["categories"]&.each_with_index do |category, index| %>
+        <%= hidden_field(:book, "categories[#{index}]", :value => category) %>
+      <% end %>
+
+      <% book["imageLinks"]&.each do |key,value| %>
+        <%= hidden_field(:book, "image_links[#{key}]", :value => value) %>
+      <% end %>
+
+      <%= submit_tag "Create" %>
+    <% end %>
+    <hr>
+  <% end %>
+<% else %>
+  No search results.
+<% end %>
