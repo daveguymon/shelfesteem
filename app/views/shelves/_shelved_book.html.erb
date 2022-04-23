@@ -2,8 +2,12 @@
   <%= link_to shelved_book do %>
     <img src=<%= shelved_book.image_links["thumbnail"] %> class="book-cover img-thumbnail">
     <div class="title-byline">
-      <span><%= shelved_book.title %></span>
-      <span class="authors-attribution"><%= shelved_book.authors.values.join(", ") %></span>
+      <div class="title"><%= shelved_book.title %></div>
+        <% shelved_book.authors.each_value do |author| %>
+          <span class="authors-attribution">
+            <%= author %>
+          </span>
+        <% end %>
     </div>
   <% end %>
 </div>

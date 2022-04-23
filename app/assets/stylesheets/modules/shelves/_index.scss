@@ -59,14 +59,18 @@
 
       .book-cover {
         height: 225px;
-        width: auto;
-        margin-right: 20px;
       }
 
       .title-byline {
         display:flex;
         flex-direction:column;
-        padding-left: 10px;
+        align-items: flex-start;
+        max-width: 160px;
+        height: auto;
+
+        .title {
+          color: $text-color;
+        }
 
         .authors-attribution {
           color: $base-grey;
