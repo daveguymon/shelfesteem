@@ -17,7 +17,8 @@
    justify-content: center;
 
    .shelf-name {
-     width: 15%;
+     width: fit-content;
+     padding: 0 7px 0 7px;
      height: 30px;
      border: 1px solid $base-grey;
      z-index: 99;
@@ -90,11 +91,17 @@
     padding: 14px;
     text-decoration: none;
   }
-
-
 }
 
-hr {
-  width: 95%;
-  background-color:$base-grey;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  #shelves {
+    width: 90%;
+
+   .shelf-identifier {
+     .shelf-flourish {
+      width: 90%;
+     }
+   }
+  }
 }
