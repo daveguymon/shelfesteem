@@ -27,6 +27,15 @@ gem "importmap-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# A generalized Rack framework for multiple-provider authentication.
+gem "omniauth"
+
+#  A Google OAuth2 strategy for OmniAuth 1.x. This allows you to login to Google with your ruby app.
+gem "omniauth-google-oauth2"
+
+#This gem provides a mitigation against CVE-2015-9284 (Cross-Site Request Forgery on the request phrase when using OmniAuth gem with a Ruby on Rails application) by implementing a CSRF token verifier that directly utilize `ActionController::RequestForgeryProtection` code from Rails
+gem "omniauth-rails_csrf_protection"
+
 # Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later.
 gem 'pg', '~> 1.3', '>= 1.3.5'
 

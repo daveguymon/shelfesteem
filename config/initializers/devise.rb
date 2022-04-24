@@ -22,6 +22,10 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '980a0a637377f5c244fa9d873728e26cc7b47ab1b9ab4c9849e9ce5d3d0758b9e4ffda4b974310246d150c7922ee3ae8d5eac3a280a2a0a72201eb7edc35961b'
 
+
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {}
+
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   config.parent_controller = 'TurboDeviseController'
