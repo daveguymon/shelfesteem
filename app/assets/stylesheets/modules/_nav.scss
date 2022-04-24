@@ -22,7 +22,7 @@ nav {
 
   }
 
-  .nav-text {
+  .nav-logout {
     color: $text-color;
     font-size: 16px;
     line-height: 16px;
@@ -43,6 +43,48 @@ nav {
       flex-direction: row;
       width: auto;
       margin-left: 15px;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  nav {
+    width: 90%;
+
+    .nav-links {
+      width: fit-content;
+      height: auto;
+      padding-top: 5px;
+    }
+
+    .nav-logout {
+      color: $text-color;
+      font-size: 16px;
+      line-height: 16px;
+      margin-right: 5px;
+      text-decoration: none;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: 90%;
+      height: auto;
+
+      .nav-search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 75%;
+        margin-left: 5px;
+
+        #search {
+          height: 40px;
+        }
+      }
     }
   }
 }
