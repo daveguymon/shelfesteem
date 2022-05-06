@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   after_create :set_default_shelves
   # Include default devise modules. Others available are:
@@ -6,11 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
 
-
   has_many :shelvings
   has_many :shelves
   has_many :books
-
 
   def self.from_omniauth(auth)
     user = User.find_by(email: auth.info.email)
@@ -21,18 +21,18 @@ class User < ApplicationRecord
     else
       user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+        user.password = Devise.friendly_token[0, 20]
       end
     end
     user
   end
 
-private
+  private
 
   def set_default_shelves
     default_shelves = ["Favorites", "Reading", "To Be Read", "Have Read"]
     default_shelves.each do |shelf|
-      Shelf.create(:name => shelf, :user_id => self.id)
+      Shelf.create(name: shelf, user_id: id)
     end
   end
 end

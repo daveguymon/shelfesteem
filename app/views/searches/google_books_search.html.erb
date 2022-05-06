@@ -9,7 +9,6 @@
       <%= hidden_field(:book, :subtitle, :value => book["subtitle"]) %>
       <%= hidden_field(:book, :description, :value => book["description"]) %>
       <%= hidden_field(:book, :page_count, :value => book["pageCount"]) %>
-      <%= hidden_field(:book, :main_category, :value => book["categories"]) %>
 
       <% book["authors"]&.each_with_index do |author, index| %>
         <%= hidden_field(:book, "authors[#{index}]", :value => author) %>

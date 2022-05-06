@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class AccountsControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create account" do
     assert_difference("Account.count") do
-      post accounts_url, params: { account: {  } }
+      post accounts_url, params: { account: {} }
     end
 
     assert_redirected_to account_url(Account.last)
@@ -34,7 +36,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update account" do
-    patch account_url(@account), params: { account: {  } }
+    patch account_url(@account), params: { account: {} }
     assert_redirected_to account_url(@account)
   end
 

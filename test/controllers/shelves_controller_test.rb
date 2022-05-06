@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class ShelvesControllerTest < ActionDispatch::IntegrationTest
@@ -17,7 +19,7 @@ class ShelvesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create shelf" do
     assert_difference("Shelf.count") do
-      post shelves_url, params: { shelf: {  } }
+      post shelves_url, params: { shelf: {} }
     end
 
     assert_redirected_to shelf_url(Shelf.last)
@@ -34,7 +36,7 @@ class ShelvesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update shelf" do
-    patch shelf_url(@shelf), params: { shelf: {  } }
+    patch shelf_url(@shelf), params: { shelf: {} }
     assert_redirected_to shelf_url(@shelf)
   end
 

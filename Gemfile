@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.5"
 
 # Row-level multitenancy for Ruby on Rails apps.
-gem 'acts_as_tenant'
+gem "acts_as_tenant"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
 # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
-gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+gem "bootstrap", "~> 5.1", ">= 5.1.3"
 
 # User authentication
-gem 'devise'
+gem "devise"
 
 # HTTP/REST API client library.
-gem 'faraday', '~> 2.2'
+gem "faraday", "~> 2.2"
 
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
-gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem "figaro", "~> 1.1", ">= 1.1.1"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -33,11 +35,11 @@ gem "omniauth"
 #  A Google OAuth2 strategy for OmniAuth 1.x. This allows you to login to Google with your ruby app.
 gem "omniauth-google-oauth2"
 
-#This gem provides a mitigation against CVE-2015-9284 (Cross-Site Request Forgery on the request phrase when using OmniAuth gem with a Ruby on Rails application) by implementing a CSRF token verifier that directly utilize `ActionController::RequestForgeryProtection` code from Rails
+# This gem provides a mitigation against CVE-2015-9284 (Cross-Site Request Forgery on the request phrase when using OmniAuth gem with a Ruby on Rails application) by implementing a CSRF token verifier that directly utilize `ActionController::RequestForgeryProtection` code from Rails
 gem "omniauth-rails_csrf_protection"
 
 # Ruby interface to the PostgreSQL RDBMS. It works with PostgreSQL 9.3 and later.
-gem 'pg', '~> 1.3', '>= 1.3.5'
+gem "pg", "~> 1.3", ">= 1.3.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -58,7 +60,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -74,7 +76,9 @@ gem "sassc-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+
+  gem "rubocop", require: false
 end
 
 group :development do

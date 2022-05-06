@@ -10,7 +10,7 @@ class TurboFailureApp < Devise::FailureApp
   end
 
   def skip_format?
-    %w(html turbo_stream */*).include? request_format.to_s
+    %w[html turbo_stream */*].include? request_format.to_s
   end
 end
 
@@ -22,19 +22,17 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '980a0a637377f5c244fa9d873728e26cc7b47ab1b9ab4c9849e9ce5d3d0758b9e4ffda4b974310246d150c7922ee3ae8d5eac3a280a2a0a72201eb7edc35961b'
 
-
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {}
-
+  config.omniauth :google_oauth2, ENV.fetch("GOOGLE_CLIENT_ID", nil), ENV.fetch("GOOGLE_CLIENT_SECRET", nil), {}
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = 'TurboDeviseController'
+  config.parent_controller = "TurboDeviseController"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -46,7 +44,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -273,7 +271,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ["*/*", :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   # NOTE: Rails UJS is broken so that the browser is sending a GET request and not a DELETE request

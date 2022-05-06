@@ -1,26 +1,19 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_book, :only => %i[ show edit update destroy reshelf]
-  after_action :add_to_shelf, :only => %i[ create ]
+  before_action :set_book, only: %i[show edit update destroy reshelf]
+  after_action :add_to_shelf, only: %i[create]
   # GET /books
   def index
     @books = Book.all
   end
 
   # GET /books/1
-  def show
-  end
+  def show; end
 
   # POST /books
   def create
-    @book = Book.new({
-      :title => params[:book][:title],
-      :subtitle => params[:book][:subtitle],
-      :authors => params[:book][:authors],
-      :description => params[:book][:description],
-      :page_count => params[:book][:page_count],
-      :categories => params[:book][:categories],
-      :image_links => params[:book][:image_links]
-    })
+    @book = Book.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -49,13 +42,15 @@ class BooksController < ApplicationController
     end
   end
 
-private
+  private
+
   def set_book
     @book = Book.find(params[:id])
   end
 
   def book_params
-    params.require(:book).permit(:title, :subtitle, :authors, :description, :page_count, :main_category, :image_links)
+    permitted_params = params.require(:book).permit(:title, :subtitle, :description, :page_count,
+                                                    authors: params["book"]["authors"].keys, categories: params["book"]["categories"].keys, image_links: params["book"]["image_links"].keys)
   end
 
   def add_to_shelf

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
@@ -5,7 +7,8 @@ class ApplicationController < ActionController::Base
   before_action :set_tenant
 
   def set_tenant
-    return unless current_user.present?
+    return if current_user.blank?
+
     set_current_tenant(current_user)
   end
 end

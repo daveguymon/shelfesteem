@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ShelvesController < ApplicationController
-  before_action :set_shelf, only: %i[ show edit update destroy ]
+  before_action :set_shelf, only: %i[show edit update destroy]
 
   # GET /shelves or /shelves.json
   def index
@@ -7,8 +9,7 @@ class ShelvesController < ApplicationController
   end
 
   # GET /shelves/1 or /shelves/1.json
-  def show
-  end
+  def show; end
 
   # GET /shelves/new
   def new
@@ -16,8 +17,7 @@ class ShelvesController < ApplicationController
   end
 
   # GET /shelves/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /shelves or /shelves.json
   def create
@@ -58,13 +58,14 @@ class ShelvesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shelf
-      @shelf = Shelf.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def shelf_params
-      params.require(:shelf).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shelf
+    @shelf = Shelf.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def shelf_params
+    params.require(:shelf).permit(:name)
+  end
 end
